@@ -21,11 +21,14 @@ def insert():
     i=len(insert)
     #print i
     if (i==10):
-        showlist()
+        flag=showlist()
         insertphonetoolduser(insert)
         if flag==1:
-            run()
+            x=raw_input('Enter the person id to append the phone number or n for new person:')
+            y=raw_input('Enter replaced number or n for new phone number :')
+            addphonenumber(x,y,insert)
             print 'insert suscess'
+            run()
         else:
             print 'Cant insert Phonenumber'
     elif(i>10):
@@ -37,7 +40,20 @@ def insert():
         insert=0
         run()      
     return
+def addphonenumber(x,y,insert):
+#    if x=='1':
+#        for i in range(1,6):
+#            if namephone[0][]
+#                namephone[0][j]
+#    elif x=='2':
 
+#    elif x=='3':
+
+#    elif x=='4':
+
+#    elif x=='5':
+#    showlist()
+    return
 def search(digi=0):
     return phone
 def allfunc():
@@ -69,30 +85,19 @@ def insertphonetoolduser(insert):
     return
 def showlist():
     j=1
-    for j in range(1,6):
-        if namephone[0][j] == '                 ':
-            j=1
+    for k in range(0,10):
+        for j in range(1,6):
+            if namephone[k][j] == '                 ':
+                j=1
+                break
+            if j==1:
+                l=k+1
+                print '[%d]'%l,namephone[k][j-1],j,'-',namephone[k][j]
+            else:
+                print '            ',j,'-',namephone[k][j]
+        j=1
+        if namephone[k][j]=='                 ':
             break
-        if j==1:
-            print '[%d]'%j,namephone[0][j-1],j,'-',namephone[0][j]
-        else:
-            print '            ',j,namephone[0][j]
-    for j in range(1,6):
-        if namephone[1][j] == '                 ':
-            j=1
-            break
-        if j==1:
-            print '[%d]'%2,namephone[1][j-1],j,'-',namephone[1][j]
-        else:
-            print '            ',j,'-',namephone[1][j]
-    for j in range(1,6):
-        if namephone[2][j] == '                 ':
-            j=1
-            break
-        if j==1:
-            print '[%d]'%3,namephone[2][j-1],j,'-',namephone[2][j]
-        else:
-            print '            ',j,'-',namephone[2][j]
     flag=1
     return flag
 run()
